@@ -63,5 +63,3 @@ def render(context: dict) -> None:
     exp_salary_df = monthly_df.groupby('experience_std', as_index=False)['salary_avg'].mean().sort_values('salary_avg', ascending=False)
     exp_salary_df = exp_salary_df.rename(columns={'salary_avg': 'mean'})
     plot_bar(exp_salary_df, x='experience_std', y='mean', title='不同经验要求平均月薪')
-
-    st.markdown("<div class='note-box'><strong>页面提示：</strong> 当前页已经同时展示薪资均值、阈值和箱线图分布，答辩时可先讲“高薪门槛”，再讲“岗位分层”，最后用箱线图说明不同岗位和经验层的薪资离散程度。</div>", unsafe_allow_html=True)
