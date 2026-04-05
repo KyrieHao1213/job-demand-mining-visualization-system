@@ -1,0 +1,114 @@
+===== 高薪岗位特征分析模块：第一轮（标准解释版，修复 Singular matrix 版本） =====
+全部过滤后样本量: 1125
+有效月薪样本量: 1026
+五类核心岗位中的有效月薪样本量: 743
+
+高薪岗位定义：
+- 基于全部有效月薪样本的 75 分位数划定高薪阈值
+- 高薪阈值（salary_avg）: 14000.00
+
+高薪组 / 非高薪组样本量：
+- 高薪岗位: 267 (26.02%)
+- 非高薪岗位: 759 (73.98%)
+
+结构化变量口径：
+- keyword：原岗位类别（分布统计阶段）
+- degree_group：不限 / 大专 / 本科 / 硕士及以上 / 其他或未说明
+- experience_group：不限 / 应届及1年以内 / 1-3年 / 3-5年 / 5年以上 / 其他或未说明
+- city_tier：一线 / 新一线 / 其他
+- company_size_tier：微型或小型 / 中型 / 大型 / 超大型 / 其他或未说明
+
+模型专用变量口径：
+- keyword_model：五类核心岗位保留，其余并入“其他分析岗位”
+- company_size_model：将“其他/未说明”并入“微型或小型”
+
+技能变量口径：
+- SQL -> skill_sql
+- Python -> skill_python
+- Excel -> skill_excel
+- Tableau -> skill_tableau
+- Power BI -> skill_power_bi
+- 数据建模 -> skill_data_modeling
+- 机器学习 -> skill_machine_learning
+- 数据仓库 -> skill_data_warehouse
+- ETL -> skill_etl
+
+模型数据集诊断：
+1. 高薪组 / 非高薪组平衡情况：
+- 非高薪岗位: 737 (73.41%)
+- 高薪岗位: 267 (26.59%)
+
+2. 模型变量缺失情况（前10项）：
+- city_tier: missing_count=0, missing_rate=0.0000
+- company_size_model: missing_count=0, missing_rate=0.0000
+- degree_group: missing_count=0, missing_rate=0.0000
+- experience_group: missing_count=0, missing_rate=0.0000
+- is_high_salary: missing_count=0, missing_rate=0.0000
+- keyword_model: missing_count=0, missing_rate=0.0000
+- skill_data_modeling: missing_count=0, missing_rate=0.0000
+- skill_data_warehouse: missing_count=0, missing_rate=0.0000
+- skill_etl: missing_count=0, missing_rate=0.0000
+- skill_excel: missing_count=0, missing_rate=0.0000
+
+3. 因稀疏类别而被剔除的水平：
+- degree_group / 其他/未说明: 总样本数过少 (total=5, non_high=5, high=0)
+- experience_group / 其他/未说明: 只出现在单一组别 (total=17, non_high=17, high=0)
+
+4. 因稀疏或分离而被剔除的技能变量：
+- 无
+
+Logistic 回归说明：
+- 拟合方式: logit
+- 是否使用 GLM Binomial 兜底: 否
+- 实现方式：statsmodels formula API
+- 参考组设置：
+  * keyword_model：数据分析师
+  * degree_group：本科
+  * experience_group：1-3年
+  * city_tier：其他
+  * company_size_model：微型或小型
+  * 技能变量：未出现该技能（0）
+
+最终进入模型的技能变量：
+- skill_sql
+- skill_python
+- skill_excel
+- skill_tableau
+- skill_power_bi
+- skill_data_modeling
+- skill_machine_learning
+- skill_data_warehouse
+- skill_etl
+
+Logistic 回归公式：
+is_high_salary ~ C(keyword_model, Treatment(reference='数据分析师')) + C(degree_group, Treatment(reference='本科')) + C(experience_group, Treatment(reference='1-3年')) + C(city_tier, Treatment(reference='其他')) + C(company_size_model, Treatment(reference='微型或小型')) + skill_sql + skill_python + skill_excel + skill_tableau + skill_power_bi + skill_data_modeling + skill_machine_learning + skill_data_warehouse + skill_etl
+
+Logistic 回归显著变量（p < 0.05）预览：
+- Intercept: OR=0.0241, 95%CI=(0.0113, 0.0513), p=0.0000
+- C(keyword_model, Treatment(reference='数据分析师'))[T.商业分析师]: OR=2.4006, 95%CI=(1.1982, 4.8098), p=0.0135
+- C(degree_group, Treatment(reference='本科'))[T.大专]: OR=0.2725, 95%CI=(0.1315, 0.5647), p=0.0005
+- C(degree_group, Treatment(reference='本科'))[T.硕士及以上]: OR=3.5790, 95%CI=(1.8837, 6.8000), p=0.0001
+- C(experience_group, Treatment(reference='1-3年'))[T.3-5年]: OR=4.9317, 95%CI=(3.1127, 7.8134), p=0.0000
+- C(experience_group, Treatment(reference='1-3年'))[T.5年以上]: OR=15.9023, 95%CI=(8.8072, 28.7133), p=0.0000
+- C(city_tier, Treatment(reference='其他'))[T.一线]: OR=5.7930, 95%CI=(3.6326, 9.2383), p=0.0000
+- C(city_tier, Treatment(reference='其他'))[T.新一线]: OR=1.6581, 95%CI=(1.0231, 2.6874), p=0.0401
+- C(company_size_model, Treatment(reference='微型或小型'))[T.超大型]: OR=2.4031, 95%CI=(1.4573, 3.9628), p=0.0006
+- skill_sql: OR=1.5971, 95%CI=(1.0282, 2.4808), p=0.0372
+- skill_python: OR=1.6332, 95%CI=(1.0707, 2.4913), p=0.0228
+- skill_excel: OR=0.6629, 95%CI=(0.4435, 0.9910), p=0.0451
+
+当前阶段已完成：
+1. 有效月薪样本筛选
+2. 高薪阈值（75分位数）计算
+3. 高薪组 / 非高薪组样本划分
+4. 结构化变量构造（学历、经验、城市层级、公司规模）
+5. 核心技能哑变量构造
+6. 高薪组与非高薪组的结构化分布对比
+7. 高薪组与非高薪组的技能分布对比
+8. 模型稀疏类别与稀疏技能诊断
+9. Logistic 回归解释模型
+
+下一步建议：
+1. 增加决策树，形成更直观的分裂路径解释
+2. 在五类核心岗位范围内，进一步比较高薪组与非高薪组的关键词差异
+3. 在五类核心岗位范围内，进一步比较高薪组与非高薪组的主题差异

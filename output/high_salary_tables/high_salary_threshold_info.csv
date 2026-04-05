@@ -1,0 +1,7 @@
+﻿metric,value
+monthly_sample_count,1026.0
+high_salary_threshold_q75,14000.0
+high_salary_count,267.0
+non_high_salary_count,759.0
+high_salary_rate,0.2602
+non_high_salary_rate,0.7398

@@ -1,0 +1,3 @@
+﻿column,dropped_level,total_count,non_high_salary_count,high_salary_count,reason
+degree_group,其他/未说明,5,5,0,总样本数过少
+experience_group,其他/未说明,17,17,0,只出现在单一组别

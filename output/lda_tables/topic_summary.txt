@@ -1,0 +1,46 @@
+===== 主题模型模块：LDA 增强版 =====
+原始样本量: 1125
+进入五类核心岗位后的样本量: 798
+进入 LDA 的有效文档数: 798
+停用词总数: 1995
+最终主题数 FINAL_K: 5
+
+五类核心岗位样本分布：
+- 数据分析师: 298
+- BI分析师: 140
+- 用户分析师: 134
+- 经营分析师: 122
+- 商业分析师: 104
+
+各 K 的困惑度：
+- K=4: perplexity=599.5240
+- K=5: perplexity=589.9541
+- K=6: perplexity=594.3551
+- K=7: perplexity=587.7995
+- K=8: perplexity=587.6763
+
+最终 K=5 主题命名：
+- Topic 1: 用户需求与产品系统主题
+- Topic 2: 商业经营与策略洞察主题
+- Topic 3: 统计报表与业务支持主题
+- Topic 4: 数据建模与运营决策主题
+- Topic 5: 财务经营与预算管理主题
+
+新增输出文件：
+- D:\桌面\NLP-Project\output\lda_tables\lda_final_topics_k5.csv
+- D:\桌面\NLP-Project\output\lda_tables\lda_doc_topic_distribution_k5.csv
+- D:\桌面\NLP-Project\output\lda_tables\lda_keyword_topic_mean_distribution_k5.csv
+- D:\桌面\NLP-Project\output\lda_tables\lda_keyword_dominant_topic_share_k5.csv
+
+当前阶段已完成：
+1. 五类核心岗位样本筛选
+2. LDA 语料构造（仅使用 job_desc_raw）
+3. LDA 轻量预处理与分词
+4. CountVectorizer 词频矩阵构建
+5. K=4,5,6,7,8 候选主题模型训练
+6. 各 K 困惑度输出
+7. 各 K 主题关键词表输出
+8. K=5 最终主题词表输出
+9. 每条文本主题概率分布输出
+10. 每类岗位平均主题概率分布输出
+11. 每类岗位主导主题占比输出

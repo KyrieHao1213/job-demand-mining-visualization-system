@@ -1,0 +1,152 @@
+===== 关键词分析模块：TF-IDF 全样本阶段 =====
+原始样本量: 1125
+进入5类核心岗位后的样本量: 798
+
+核心岗位样本分布：
+- 数据分析师: 298
+- BI分析师: 140
+- 用户分析师: 134
+- 经营分析师: 122
+- 商业分析师: 104
+
+停用词总数: 2007
+预处理预览文件: D:\桌面\NLP-Project\output\keyword_tables\keyword_preprocess_preview.csv
+分组统计文件: D:\桌面\NLP-Project\output\keyword_tables\keyword_group_counts.csv
+TF-IDF 原始版结果文件: D:\桌面\NLP-Project\output\keyword_tables\tfidf_global_top30.csv
+TF-IDF 过滤版结果文件: D:\桌面\NLP-Project\output\keyword_tables\tfidf_global_filtered_top30.csv
+TF-IDF 分组结果文件: D:\桌面\NLP-Project\output\keyword_tables\tfidf_by_keyword_top20.csv
+TextRank 原始版结果文件: D:\桌面\NLP-Project\output\keyword_tables\textrank_global_top30.csv
+TextRank 过滤版结果文件: D:\桌面\NLP-Project\output\keyword_tables\textrank_global_filtered_top30.csv
+TextRank 分组结果文件: D:\桌面\NLP-Project\output\keyword_tables\textrank_by_keyword_top20.csv
+
+原始版全样本 TF-IDF Top10：
+1. 数据 : 0.128742
+2. 业务 : 0.080327
+3. 分析 : 0.076010
+4. 数据分析 : 0.064719
+5. 运营 : 0.035667
+6. 需求 : 0.034297
+7. 用户 : 0.032990
+8. 项目 : 0.030332
+9. 经营 : 0.029741
+10. 优化 : 0.029067
+
+过滤版全样本 TF-IDF Top10：
+1. 运营 : 0.035667
+2. 用户 : 0.032990
+3. 经营 : 0.029741
+4. 优化 : 0.029067
+5. 产品 : 0.027560
+6. 报告 : 0.025365
+7. 财务 : 0.024419
+8. 策略 : 0.024388
+9. sql : 0.024185
+10. 决策 : 0.023743
+
+各岗位 filtered 版 TF-IDF Top5 预览：
+
+[数据分析师]
+1. 优化 : 0.028935
+2. 统计学 : 0.027169
+3. 模型 : 0.026296
+4. 报告 : 0.025296
+5. sql : 0.025145
+
+[BI分析师]
+1. bi : 0.041460
+2. 报表 : 0.041083
+3. sql : 0.035603
+4. powerbi : 0.034001
+5. 可视化 : 0.033627
+
+[用户分析师]
+1. 用户 : 0.076048
+2. 运营 : 0.054256
+3. 产品 : 0.048301
+4. 研究 : 0.038725
+5. 优化 : 0.033970
+
+[经营分析师]
+1. 经营 : 0.068190
+2. 运营 : 0.064890
+3. 财务 : 0.057473
+4. 优化 : 0.030854
+5. 建议 : 0.028553
+
+[商业分析师]
+1. 商业 : 0.056287
+2. 经营 : 0.052603
+3. 策略 : 0.046729
+4. 行业 : 0.033274
+5. 优化 : 0.032904
+
+原始版全样本 TextRank Top10：
+1. 数据 : doc_freq=645, avg_weight=0.807357
+2. 分析 : doc_freq=579, avg_weight=0.584766
+3. 业务 : doc_freq=447, avg_weight=0.601718
+4. 运营 : doc_freq=175, avg_weight=0.499771
+5. 优化 : doc_freq=174, avg_weight=0.357978
+6. 项目 : doc_freq=146, avg_weight=0.457768
+7. 用户 : doc_freq=139, avg_weight=0.491930
+8. 管理 : doc_freq=139, avg_weight=0.456206
+9. 行业 : doc_freq=132, avg_weight=0.392451
+10. 统计学 : doc_freq=127, avg_weight=0.372257
+
+过滤版全样本 TextRank Top10：
+1. 运营 : doc_freq=175, avg_weight=0.499771
+2. 优化 : doc_freq=174, avg_weight=0.357978
+3. 用户 : doc_freq=139, avg_weight=0.491930
+4. 行业 : doc_freq=132, avg_weight=0.392451
+5. 统计学 : doc_freq=127, avg_weight=0.372257
+6. 产品 : doc_freq=124, avg_weight=0.439776
+7. 报告 : doc_freq=124, avg_weight=0.345307
+8. 指标 : doc_freq=111, avg_weight=0.370725
+9. 报表 : doc_freq=108, avg_weight=0.418972
+10. 经营 : doc_freq=107, avg_weight=0.516282
+
+各岗位 filtered 版 TextRank Top5 预览：
+
+[数据分析师]
+1. 优化 : doc_freq=66, avg_weight=0.360302
+2. 统计学 : doc_freq=58, avg_weight=0.398036
+3. 数学 : doc_freq=48, avg_weight=0.335530
+4. 计算机 : doc_freq=45, avg_weight=0.354473
+5. 软件 : doc_freq=44, avg_weight=0.428893
+
+[BI分析师]
+1. 报表 : doc_freq=44, avg_weight=0.429340
+2. bi : doc_freq=37, avg_weight=0.438595
+3. 优化 : doc_freq=31, avg_weight=0.331239
+4. 报告 : doc_freq=27, avg_weight=0.365304
+5. 统计学 : doc_freq=26, avg_weight=0.327260
+
+[用户分析师]
+1. 用户 : doc_freq=75, avg_weight=0.558598
+2. 运营 : doc_freq=44, avg_weight=0.482702
+3. 产品 : doc_freq=40, avg_weight=0.473358
+4. 优化 : doc_freq=34, avg_weight=0.362160
+5. 策略 : doc_freq=27, avg_weight=0.351180
+
+[经营分析师]
+1. 经营 : doc_freq=54, avg_weight=0.584572
+2. 运营 : doc_freq=51, avg_weight=0.605234
+3. 财务 : doc_freq=32, avg_weight=0.538659
+4. 行业 : doc_freq=26, avg_weight=0.350031
+5. 指标 : doc_freq=24, avg_weight=0.361552
+
+[商业分析师]
+1. 商业 : doc_freq=45, avg_weight=0.453840
+2. 经营 : doc_freq=28, avg_weight=0.503667
+3. 策略 : doc_freq=24, avg_weight=0.601537
+4. 行业 : doc_freq=24, avg_weight=0.439755
+5. 优化 : doc_freq=20, avg_weight=0.363276
+
+当前阶段已完成：
+1. 核心岗位筛选
+2. 文本字段构造（job_title + job_desc_raw）
+3. 通用停用词/自定义停用词加载
+4. 文本标准化与分词清洗
+5. 全样本 TF-IDF 关键词提取（原始版 + 泛词过滤版）
+6. 分岗位 TF-IDF 关键词提取（raw + filtered）
+7. 全样本 TextRank 关键词提取（逐条提取后汇总，原始版 + 过滤版）
+8. 分岗位 TextRank 关键词提取（raw + filtered）
