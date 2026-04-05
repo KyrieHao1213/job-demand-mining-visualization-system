@@ -43,11 +43,6 @@ def render(context: dict) -> None:
         plot_stacked_bar(exp_stack, x='keyword', y='count', color='experience_std', title='岗位 × 经验分布')
 
     st.markdown(
-        """
-        <div class='info-panel'>
-        <div class='section-title'>答辩讲解建议</div>
-        <div class='page-desc'>这一页可以重点强调：数据分析岗位并不是单一职位，而是已经形成了数据分析师、BI 分析师、用户分析师、经营分析师、商业分析师等多类细分方向；不同方向在城市集聚、学历门槛与经验要求上呈现出明显差异。</div>
-        </div>
-        """,
+        f"<div class='note-box'><strong>页面结论：</strong> 数据分析岗位并不是单一职位，而是已经形成了数据分析师、BI 分析师、用户分析师、经营分析师、商业分析师等多类细分方向；不同方向在城市集聚、学历门槛与经验要求上呈现出明显差异。</div>",
         unsafe_allow_html=True,
     )
