@@ -63,6 +63,6 @@ def render(context: dict) -> None:
     top_city = city_df.iloc[0]['city'] if not city_df.empty else '暂无'
     top_kw = keyword_df.iloc[0]['keyword'] if not keyword_df.empty else '暂无'
     st.markdown(
-        f"<div class='note-box'><strong>页面结论：</strong> 当前筛选条件下，招聘需求最集中的城市为 <strong>{top_city}</strong>，最主要的岗位类别为 <strong>{top_kw}</strong>。该页适合在答辩开场快速说明样本结构与市场总体格局。</div>",
+        f"<div class='note-box'><strong>页面结论：</strong> 当前筛选条件下，招聘需求最集中的城市为 <strong>{top_city}</strong>，最主要的岗位类别为 <strong>{top_kw}</strong>。",
         unsafe_allow_html=True,
     )
