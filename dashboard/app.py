@@ -42,7 +42,7 @@ def load_css() -> None:
 
 @st.cache_data(show_spinner=False)
 def _hero_hint() -> str:
-    return '面向答辩展示场景的可视化系统，统一整合岗位画像、技能需求、文本挖掘与高薪岗位特征。'
+    return '展示数据分析岗位需求的可视化系统，统一整合岗位画像、技能需求、文本挖掘与高薪岗位特征。'
 
 
 def init_data() -> None:
