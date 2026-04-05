@@ -30,7 +30,7 @@ def render(context: dict) -> None:
     filters = context['filters']
 
     st.markdown("<div class='page-title'>高薪岗位特征页</div>", unsafe_allow_html=True)
-    st.markdown("<div class='page-desc'>综合展示高薪定义、结构化差异、Logistic 回归显著变量以及高薪差异词，是整套系统中最适合做研究结论收束的一页。</div>", unsafe_allow_html=True)
+    st.markdown("<div class='page-desc'>综合展示高薪定义、结构化差异、Logistic 回归显著变量以及高薪差异词。</div>", unsafe_allow_html=True)
 
     info_df = get_dataset(datasets, 'high_salary_info')
     city_df = get_dataset(datasets, 'high_salary_city')
@@ -93,5 +93,3 @@ def render(context: dict) -> None:
     st.markdown("<div class='section-title'>重点岗位内部差异词</div>", unsafe_allow_html=True)
     df = data_diff if focus_keyword == '数据分析师' else biz_diff
     plot_diverging_bar(df, term_col='term', value_col='diff', side_col='side', title=f'{focus_keyword}内部高薪差异词')
-
-    st.markdown("<div class='note-box'><strong>说明：</strong> 本页刻意不展示“高薪主题差异分析”，与论文正文的最终收口保持一致。</div>", unsafe_allow_html=True)
