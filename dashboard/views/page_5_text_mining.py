@@ -314,7 +314,7 @@ def render(context: Dict[str, Any]):
     lda_final_topics = _safe_read_csv(lda_final_topics_path)
 
     st.header("文本挖掘页")
-    st.write("将 TF-IDF、TextRank 与 LDA 主题模型放在同一页中展示，突出你这个项目的 NLP 特色。")
+    st.write("将 TF-IDF、TextRank 与 LDA 主题模型放在同一页中展示，突出项目的 NLP 特色。")
 
     # =========================
     # 岗位聚焦对象
@@ -435,5 +435,3 @@ def render(context: Dict[str, Any]):
 
     st.markdown("---")
     _render_keyword_topic_relation_chart(base_dir)
-
-    st.success("答辩建议：这一页最能体现 NLP 项目特色。建议按“关键词层—语义中心层—潜在主题层”三步来讲，并与报告 4.3—4.4 保持一致。")
